@@ -22,7 +22,10 @@
     .record {
       visibility: hidden;
     }
-    
+    .header__theme-menu-button_type_light {
+      color: var(--detail-color, #353430);
+      outline-color: var(--detail-color, #353430);
+    }
 }
 
 
