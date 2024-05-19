@@ -3,4 +3,15 @@
   и их переопределение под различные устройства
 */
 
-
+:root {
+  --main-font: "IBM Plex Mono", sans-serif;
+  --bg-color: #000028;
+  --accent-title: #000028;
+  --text-color: #f1b2ce;
+  --accent-color: #ff0070;
+  --button-color: #FF0070;
+  --title-color: #db00ff;
+  --accent-main-title: #ff0070;
+  --detail-color: #ff0070;
+  --bg-image: url(../images/cover-image-dark.png);
+}

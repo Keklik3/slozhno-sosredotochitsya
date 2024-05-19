@@ -1,15 +1,4 @@
 /* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-:root {
-  --main-font: "IBM Plex Mono", sans-serif;
-  --bg-color: #000028;
-  --accent-title: #000028;
-  --text-color: #f1b2ce;
-  --accent-color: #ff0070;
-  --title-color: #db00ff;
-  --accent-main-title: #ff0070;
-  --detail-color: #ff0070;
-  --bg-image: url(../images/cover-image-dark.png);
-}
 
 .page {
   word-spacing: 8px;
@@ -17,6 +6,7 @@
   color: var(--text-color, #f1b2ce);
   min-inline-size: 360px;
   font-family: var(--main-font, sans-serif);
+  background-image: var(--bg-image, url(../images/cover-image-dark.png));
   background-color: var(--bg-color, #000028);
   background-attachment: fixed;
 
@@ -26,7 +16,7 @@
 .header {
   position: relative;
   display: grid;
-  background-image: var(--bg-image, url(../images/cover-image-dark.png));
+  grid-template-rows: 1fr 1fr 1fr;
   background-size: cover;
   background-repeat: no-repeat;
   block-size: 100vh;
@@ -49,12 +39,14 @@
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
   justify-content: center;
-  gap: 30px;
+  gap: 10px;
   padding: 0;
+  margin-top: 20px;
 }
 
 .header__theme-menu-item {
   list-style: none;
+  width: 70px;
 }
 
 .header__theme-menu-button {
@@ -74,13 +66,18 @@
   text-transform: lowercase;
 }
 
+.header__theme-menu-button_active {
+  outline: 1px solid var(--detail-color, #ff0070);
+}
+
 button:active {
   outline: 1px solid var(--detail-color, #ff0070);
 }
 
 button:hover {
+  color: var(--button-color, #ff0070);
   outline: 1px solid;
-  outline-color: var(--detail-color, #ff0070);
+  outline-color: var(--accent-color, #ff0070);
 }
 
 button:focus {
@@ -88,12 +85,12 @@ button:focus {
 }
 
 button:focus-visible {
-  text-decoration: underline var(--detail-color, #ff0070);
+  border-bottom: 1px solid var(--detail-color, #ff0070);
 }
 
 .title {
   margin: 0;
-  margin-top: 50px;
+  margin-top: 13px;
   display: flex;
   align-items: center;
   font-family: var(--main-font, sans-serif);
@@ -102,6 +99,7 @@ button:focus-visible {
   color: var(--title-color, #db00ff);
   text-shadow: 4px 4px var(--accent-color, #ff0070);
   word-spacing: 70px;
+  letter-spacing: 4px;
 }
 
 .heading {
@@ -114,8 +112,15 @@ button:focus-visible {
   color: var(--accent-main-title, #ff0070);
 }
 
-.five-tips-title {
+*.five-tips-title {
   margin-bottom: 20px;
+}
+
+h3 {
+  margin: 0;
+}
+p {
+  margin: 10px 0 19px;
 }
 
 .title-decor {
@@ -126,17 +131,29 @@ button:focus-visible {
   color: var(--accent-title, #000028);
   font-weight: 700;
   font-size: 18px;
+  line-height: 1.35;
+  letter-spacing: 0.1px;
+  word-spacing: 8px;
 }
 
 .whysohard {
+  margin-top: 60px;
   display: grid;
-  grid-template-columns: 1fr 2fr;
+  grid-template-columns: 1fr 1.94fr;
 }
+
+.how-to-concentrate {
+  margin-top: 60px;
+  display: grid;
+  grid-template-columns: 1fr 1.94fr;
+}
+
 .advice-block {
   margin-block-start: 60px;
 }
 
 .concentration {
+  margin-top: 10px;
   display: inline-grid;
   justify-items: center;
   column-gap: 20px;
@@ -179,15 +196,16 @@ button:focus-visible {
   font-family: var(--main-font, sans-serif);
   font-weight: 400;
   font-size: 18px;
-  word-spacing: 10px;
+  word-spacing: 7px;
+  letter-spacing: 0.7px;
   line-height: 23.4px;
 }
 
 .title-text {
-  margin: 0;
+  margin-top: 51px;
   max-inline-size: 491px;
   margin-inline-end: 20px;
-  max-block-size: 71px;
+  max-block-size: 70px;
 }
 
 .title-text-container {
@@ -254,6 +272,8 @@ button:focus-visible {
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   color: var(--title-color, #db00ff);
   text-shadow: 1px 1px var(--accent-color, #ff0070);
+  letter-spacing: 5px;
+  margin-left: 35px;
 }
 
 .content-card::after {
@@ -315,7 +335,6 @@ a:focus-visible {
 
   .header {
     display: grid;
-    grid-template-rows: 0.5fr 1fr 1fr;
     padding: 0 10px;
   }
   .button-section {
@@ -326,13 +345,14 @@ a:focus-visible {
     display: flex;
     flex-direction: column;
     margin-top: 85px;
-    margin-right: 20px;
+    margin-inline-end: 15px;
     row-gap: 10px;
   }
 
   .advice-block {
     display: flex;
     flex-direction: column;
+    margin-block-start: 30px;
   }
 
   .concentration {
@@ -342,8 +362,25 @@ a:focus-visible {
 
   .title {
     font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    line-height: 95px;
+    margin-top: 25px;
+    letter-spacing: 10px;
   }
 
+  .whysohard {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 60px;
+  }
+  .how-to-concentrate {
+    display: flex;
+    flex-direction: column;
+    margin-block-start: 40px;
+  }
+
+  .record {
+    right: 38px;
+  }
   .galery {
     display: flex;
     flex-direction: column;
@@ -354,20 +391,31 @@ a:focus-visible {
     margin-bottom: 10px;
   }
 
+  .heading {
+    max-inline-size: 355px;
+  }
+
   .title-text {
     margin: 0;
     max-block-size: 117px;
+    max-inline-size: 355px;
+    margin-inline-end: 5px;
     width: 100%;
     margin-top: 50px;
   }
 
-  .title {
-    margin: 0;
-    line-height: 95px;
+  .text-decor {
+    word-spacing: 6px;
+    letter-spacing: 0.7px;
+  }
+
+  .footer-title {
+    margin-left: 0;
   }
 
   .header::before {
     left: 10px;
+    bottom: 0;
   }
 
   .header::after {
@@ -394,8 +442,24 @@ a:focus-visible {
 
   .title-text {
     max-block-size: 117px;
-    max-inline-size: 350px;
+    max-inline-size: 365px;
     word-wrap: normal;
+    margin-top: 40px;
+    letter-spacing: 0.5px;
+    word-spacing: 7px;
+  }
+
+  .title {
+    word-spacing: 50px;
+  }
+  .whysohard {
+    margin-top: 60px;
+    grid-template-columns: 1fr 1.85fr;
+  }
+
+  .how-to-concentrate {
+    margin-top: 60px;
+    grid-template-columns: 1fr 1.85fr;
   }
 
   .content-card {
@@ -408,11 +472,18 @@ a:focus-visible {
     align-items: flex-end;
   }
 
+  .text-decor {
+    word-spacing: 7px;
+    letter-spacing: 0.7px;
+  }
+
   .header__theme-menu-list {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
-    margin-right: 20px;
+    margin-inline-end: 30px;
+    margin-top: 0;
+    margin-bottom: 53px;
   }
 
   .heading {
