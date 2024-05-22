@@ -78,7 +78,7 @@ button:active {
 button:hover {
   color: var(--button-color, #ff0070);
   outline: 1px solid;
-  outline-color: var(--accent-color, #ff0070);
+  outline-color: var(--outline-color, #ff0070);
 }
 
 button:focus {
